@@ -9,8 +9,10 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 export class AppComponent {
   title = 'app works!';
 
-  constructor(private af: AngularFire){
+  items: FirebaseListObservable<any []>;
 
+  constructor(private af: AngularFire){
+    this.items = af.database.list('/items');
   }
 
 }
